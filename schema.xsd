@@ -40,7 +40,7 @@
             <xs:element name="address" />
             <xs:element name="phone" type="xs:string" minOccurs="0" />
             <xs:element name="website" type="xs:string" minOccurs="0" />
-            <xs:element name="capacity" type="xs:integer" />
+            <xs:element name="capacity" type="integer_1-100" />
             <xs:element name="workingHours" type="xs:string" minOccurs="0"/>
             <xs:element name="rating" type="float_0-10" />
             <xs:element name="priceCategory" type="priceCategoryType" />
