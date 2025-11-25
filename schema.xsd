@@ -144,3 +144,75 @@
         <xs:attribute name="lactoseFree" type="xs:boolean" default="false" />
         <xs:attribute name="glutenFree" type="xs:boolean" default="false" />
     </xs:complexType>
+
+    <xs:element name="regions">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name="region" type="regionType" minOccurs="1" maxOccurs="unbounded">
+                <xs:key name="regionKey">
+                    <xs:selector xpath="." />
+                    <xs:field xpath="@id" />
+                </xs:key>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+   </xs:element>
+
+    <xs:complexType name="regionType">
+        <xs:sequence>
+            <xs:element name="regionName" type="nonEmptyString" />
+            <xs:element name="municipality" type="nonEmptyString" />
+            <xs:element name="city" type="nonEmptyString" />
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required" />
+    </xs:complexType>
+
+    <xs:element name="chains">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="chain" type="chainType" minOccurs="0">
+                    <xs:key name="chainKey">
+                        <xs:selector xpath="." />
+                        <xs:field xpath="@id" />
+                    </xs:key>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="chainType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="id" type="xs:ID" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:simpleType name="nonEmptyString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="shortString">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1" />
+            <xs:maxLength value="1024" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="float_0-10">
+        <xs:restriction base="xs:float">
+            <xs:minInclusive value="0" />
+            <xs:maxInclusive value="10" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="integer_1-100">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1" />
+            <xs:maxInclusive value="100" />
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
