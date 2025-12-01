@@ -9,9 +9,9 @@
      rating,
      priceCategory,
      capacity,
-     workingHours?,
+     workingHours,
      picture,
-     gallery?,
+     gallery,
      services,
      menu)>
 
