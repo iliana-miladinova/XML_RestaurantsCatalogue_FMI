@@ -1,0 +1,92 @@
+<!ELEMENT restaurantCatalogue (restaurants, regions, chains)>
+
+<!ELEMENT restaurants (restaurant*)>
+<!ELEMENT restaurant
+    (name,
+     categoryList,
+     address,
+     description,
+     rating,
+     priceCategory,
+     capacity,
+     workingHours?,
+     picture,
+     gallery?,
+     services,
+     menu)>
+
+<!ATTLIST restaurant
+    id ID #REQUIRED
+    region IDREF #REQUIRED
+    chain IDREF #IMPLIED>
+
+<!ELEMENT categoryList (category*)>
+<!ELEMENT category (#PCDATA)>
+
+<!ELEMENT address (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT rating (#PCDATA)>
+<!ELEMENT priceCategory (#PCDATA)>
+<!ELEMENT capacity (#PCDATA)>
+<!ELEMENT workingHours (#PCDATA)>
+
+<!ELEMENT picture EMPTY>
+<!ATTLIST picture
+    source ENTITY #REQUIRED>
+
+<!ELEMENT gallery (image*)>
+<!ELEMENT image EMPTY>
+<!ATTLIST image
+    source ENTITY #REQUIRED>
+
+<!ELEMENT services EMPTY>
+<!ATTLIST services
+    wifi CDATA #REQUIRED
+    delivery CDATA #REQUIRED
+    kidsArea CDATA #REQUIRED
+    outdoorSeating CDATA #REQUIRED
+    liveMusic CDATA #REQUIRED
+    airConditioning CDATA #REQUIRED
+    veganOptions CDATA #REQUIRED
+    reservations CDATA #REQUIRED
+    parking CDATA #REQUIRED>
+
+<!ELEMENT menu (dish*)>
+
+<!ELEMENT dish (name, price, ingredients, alergens, diet)>
+
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT ingredients (#PCDATA)>
+
+<!ELEMENT alergens EMPTY>
+<!ATTLIST alergens
+    gluten CDATA #REQUIRED
+    dairy CDATA #REQUIRED
+    nuts CDATA #REQUIRED
+    seafood CDATA #REQUIRED
+    eggs CDATA #REQUIRED>
+
+<!ELEMENT diet EMPTY>
+<!ATTLIST diet
+    vegan CDATA #REQUIRED
+    vegetarian CDATA #REQUIRED
+    lactoseFree CDATA #REQUIRED
+    glutenFree CDATA #REQUIRED>
+
+
+<!ELEMENT regions (region*)>
+
+<!ELEMENT region (regionName, municipality, city)>
+<!ATTLIST region
+    id ID #REQUIRED>
+
+<!ELEMENT regionName (#PCDATA)>
+<!ELEMENT municipality (#PCDATA)>
+<!ELEMENT city (#PCDATA)>
+
+
+<!ELEMENT chains (chain*)>
+
+<!ELEMENT chain (#PCDATA)>
+<!ATTLIST chain
+    id ID #REQUIRED>
