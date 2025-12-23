@@ -325,7 +325,7 @@
                                             </small>
                                         </h5>
                                         <p class="card-text">
-                                            <xsl:call-template name="regionShow">
+                                            <xsl:call-template name="regionTempl">
                                                 <xsl:with-param name="regId" select="$regId"/>
                                             </xsl:call-template>
                                         </p>
@@ -395,7 +395,7 @@
                 <div class="col-5 ms-4">
                     <p>
                         <strong>Located in:</strong>
-                        <xsl:call-template name="regionShow">
+                        <xsl:call-template name="regionTempl">
                             <xsl:with-param name="regId" select="$regId"/>
                         </xsl:call-template>
                     </p>
@@ -518,7 +518,7 @@
         </div>
     </xsl:template>
 
-    <xsl:template name="regionShow">
+    <xsl:template name="regionTempl">
         <xsl:param name="regId"/>
         <span>
             <xsl:value-of select="/catalogue/regions/region[@id=$regId]/country" />
