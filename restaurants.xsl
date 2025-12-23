@@ -36,7 +36,7 @@
                 <meta charset="UTF-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <title>Restaurants Catalogue</title>
-                <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/> -->
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
                 <style>
                     body {
@@ -74,7 +74,7 @@
                 </div>
             </body>
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"/>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script defer="true">
                 let picUrlsMap = [
                 <xsl:for-each select="//*[boolean(@source)]">
@@ -195,10 +195,10 @@
                             <li>
                                 <button onclick="filterBy('','')" class="dropdown-item">All regions</button>
                             </li>
-                            <xsl:for-each select="catalogue/regions/region">
+                            <xsl:for-each select="restaurantCatalogue/regions/region">
                                 <li>
                                     <button onclick="filterBy('region','{@id}')" class="dropdown-item">
-                                        <xsl:call-template name="regionShow">
+                                        <xsl:call-template name="regionTempl">
                                             <xsl:with-param name="regId" select="@id" />
                                         </xsl:call-template>
                                     </button>
@@ -216,7 +216,7 @@
                             <li>
                                 <button onclick="filterBy('','')" class="dropdown-item">All restaurants</button>
                             </li>
-                            <xsl:for-each select="catalogue/chains/chain">
+                            <xsl:for-each select="restaurantCatalogue/chains/chain">
                                 <li>
                                     <button onclick="filterBy('chain','{@id}')" class="dropdown-item">
                                         <xsl:value-of select="." />
@@ -236,19 +236,19 @@
                                 <button onclick="filterBy('','')" class="dropdown-item">All ratings</button>
                             </li>
                             <li>
-                                <button onclick="filterBy('rating','9')" class="dropdown-item">9 & up</button>
+                                <button onclick="filterBy('rating','9')" class="dropdown-item">9 &amp; up</button>
                             </li>
                             <li>
-                                <button onclick="filterBy('rating','8')" class="dropdown-item">8 & up</button>
+                                <button onclick="filterBy('rating','8')" class="dropdown-item">8 &amp; up</button>
                             </li>
                             <li>
-                                <button onclick="filterBy('rating','7')" class="dropdown-item">7 & up</button>
+                                <button onclick="filterBy('rating','7')" class="dropdown-item">7 &amp; up</button>
                             </li>
                             <li>
-                                <button onclick="filterBy('rating','6')" class="dropdown-item">6 & up</button>
+                                <button onclick="filterBy('rating','6')" class="dropdown-item">6 &amp; up</button>
                             </li>
                             <li>
-                                <button onclick="filterBy('rating','5')" class="dropdown-item">5 & up</button>
+                                <button onclick="filterBy('rating','5')" class="dropdown-item">5 &amp; up</button>
                             </li>
                         </ul>
                     </div>
@@ -276,6 +276,7 @@
                         </ul>
                     </div>
                     <xsl:call-template name="allRestaurantsTempl" />
+                </div>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="oneRestaurantTempl" />
@@ -285,7 +286,7 @@
 
     <xsl:template name="allRestaurantsTempl">
         <div class="d-flex flex-wrap">
-            <xsl:for-each select="catalogue/restaurants/restaurant">
+            <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
                 <xsl:choose>
                     <xsl:when test="$sortOn='name'">
                         <xsl:sort select="name" order="$sortOrder" data-type="text"/>
@@ -331,7 +332,7 @@
                                         </p>
                                         <xsl:if test="$chainId != ''">
                                             <p class="card-text">
-                                                Part of: <xsl:value-of select="/catalogue/chains/chain[@id=$chainId]"/>
+                                                Part of: <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
                                             </p>
                                         </xsl:if>
                                         <p class="card-text text-body-secondary">
@@ -521,11 +522,11 @@
     <xsl:template name="regionTempl">
         <xsl:param name="regId"/>
         <span>
-            <xsl:value-of select="/catalogue/regions/region[@id=$regId]/country" />
+            <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/country" />
             <xsl:text>, </xsl:text>
-            <xsl:value-of select="/catalogue/regions/region[@id=$regId]/municipality" />
+            <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/municipality" />
             <xsl:text>, </xsl:text>
-            <xsl:value-of select="/catalogue/regions/region[@id=$regId]/city" />
+            <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/city" />
         </span>
     </xsl:template>
 

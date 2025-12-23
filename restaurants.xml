@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="restaurants.xsl"?>
+<restaurantCatalogue>
+    <regions>
+        <region id="r1">
+            <country>Bulgaria</country>
+            <municipality>Sofia</municipality>
+            <city>Sofia</city>
+        </region>
+        <region id="r2">
+            <country>Bulgaria</country>
+            <municipality>Plovdiv</municipality>
+            <city>Plovdiv</city>
+        </region>
+    </regions>
+
+    <chains>
+        <chain id="c1">McDonald's</chain>
+        <chain id="c2">KFC</chain>
+    </chains>
+
+    <restaurants>
+        <restaurant id="res1" region="r1" chain="c1">
+            <name>McDonald's Sofia Center</name>
+            <rating>8.5</rating>
+            <categoryList>
+                <category>Fast Food</category>
+            </categoryList>
+            <address>bul. Vitosha 10</address>
+            <capacity>120</capacity>
+            <workingHours>08:00-23:00</workingHours>
+            <priceCategory>$$</priceCategory>
+            <description>Popular fast food restaurant in the city center.</description>
+            <picture source="mcd_sofia.jpg"/>
+            <gallery>
+                <image source="mcd_sofia_1.jpg"/>
+                <image source="mcd_sofia_2.jpg"/>
+            </gallery>
+            <services wifi="true" parking="false" delivery="true"/>
+            <menu>
+                <dish>
+                    <name>Big Mac</name>
+                    <price>5.50</price>
+                    <ingredients>Beef, Lettuce, Cheese</ingredients>
+                    <alergens>gluten="true" dairy="true"</alergens>
+                    <diet>vegetarian="false"</diet>
+                </dish>
+                <dish>
+                    <name>French Fries</name>
+                    <price>2.00</price>
+                    <ingredients>Potatoes, Salt</ingredients>
+                    <alergens>gluten="false"</alergens>
+                    <diet>vegetarian="true"</diet>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <restaurant id="res2" region="r2" chain="c2">
+            <name>KFC Plovdiv Mall</name>
+            <rating>9.0</rating>
+            <categoryList>
+                <category>Fast Food</category>
+            </categoryList>
+            <address>Plovdiv Mall, Plovdiv</address>
+            <capacity>150</capacity>
+            <workingHours>10:00-22:00</workingHours>
+            <priceCategory>$$</priceCategory>
+            <description>Chicken specialties and sides.</description>
+            <picture source="kfc_plovdiv.jpg"/>
+            <gallery>
+                <image source="kfc_plovdiv_1.jpg"/>
+            </gallery>
+            <services wifi="true" parking="true" delivery="true"/>
+            <menu>
+                <dish>
+                    <name>Original Chicken</name>
+                    <price>6.00</price>
+                    <ingredients>Chicken, Spices</ingredients>
+                    <alergens>gluten="false"</alergens>
+                    <diet>vegetarian="false"</diet>
+                </dish>
+            </menu>
+        </restaurant>
+    </restaurants>
+</restaurantCatalogue>
