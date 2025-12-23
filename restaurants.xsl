@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--<xsl:stylesheet version="2.0"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:output method="html" indent="yes" doctype-public="-//W3C//DTD HTML 4.01//EN" doctype-system="http://www.w3.org/TR/html4/strict.dtd" /> -->
+
 <xsl:stylesheet version="1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output method="html" indent="yes" omit-xml-declaration="yes" />
@@ -49,21 +47,106 @@
                         text-align: center;
                         margin-bottom: 30px;
                     }
+                    #content {
+                        max-width: 1400px;
+                        margin: 0 auto;
+                    }
                     .card {
-                        margin-bottom: 20px;
-                        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                        margin-bottom: 25px;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                        border: none;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+                        height: 100%;
+                    }
+                    .card:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
                     }
                     .card-title {
                         font-weight: bold;
+                        font-size: 1.3rem;
+                        margin-bottom: 10px;
+                        color: #333;
                     }
-
                     .card-text {
                         color: #555;
+                        margin-bottom: 8px;
+                        font-size: 0.95rem;
                     }
-
-                    img {
-                        max-width: 100%;
-                        height: auto;
+                    .card-img-container {
+                        height: 200px;
+                        overflow: hidden;
+                        background-color: #f0f0f0;
+                    }
+                    .card-img-container img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        transition: transform 0.3s ease;
+                    }
+                    .card:hover .card-img-container img {
+                        transform: scale(1.05);
+                    }
+                    .rating-badge {
+                        display: inline-block;
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        padding: 5px 12px;
+                        border-radius: 20px;
+                        font-weight: bold;
+                        font-size: 0.9rem;
+                        margin-top: 5px;
+                    }
+                    .category-badge {
+                        display: inline-block;
+                        background-color: #e9ecef;
+                        color: #495057;
+                        padding: 3px 8px;
+                        border-radius: 12px;
+                        font-size: 0.85rem;
+                        margin-right: 5px;
+                    }
+                    .showMoreBut {
+                        margin-top: 10px;
+                        border-radius: 25px;
+                        padding: 8px 20px;
+                        font-weight: 500;
+                        transition: all 0.3s ease;
+                    }
+                    .showMoreBut:hover {
+                        transform: scale(1.05);
+                    }
+                    .location-icon, .chain-icon {
+                        color: #6c757d;
+                        margin-right: 5px;
+                    }
+                    @media (min-width: 1200px) {
+                        .restaurant-card-wrapper {
+                            flex: 0 0 48%;
+                            max-width: 48%;
+                        }
+                    }
+                    @media (min-width: 768px) and (max-width: 1199px) {
+                        .restaurant-card-wrapper {
+                            flex: 0 0 48%;
+                            max-width: 48%;
+                        }
+                    }
+                    @media (max-width: 767px) {
+                        .restaurant-card-wrapper {
+                            flex: 0 0 100%;
+                            max-width: 100%;
+                        }
+                    }
+                    .restaurant-card-wrapper {
+                        padding: 0 15px;
+                        box-sizing: border-box;
+                    }
+                    .restaurants-container {
+                        width: 100%;
+                        margin: 0 auto;
                     }
                 </style>
             </head>
@@ -81,7 +164,7 @@
                     <xsl:text>["</xsl:text>
                     <xsl:value-of select="@source"/>
                     <xsl:text>" , "</xsl:text>
-                    <xsl:value-of select="unparsed-entity-uri(@source)"/>
+                    <xsl:value-of select="@source"/>
                     <xsl:text>"], </xsl:text>
                 </xsl:for-each>
                 ];
@@ -186,7 +269,7 @@
     <xsl:template name="loadContent">
         <xsl:choose>
             <xsl:when test="$showAll = 'true'">
-                <div id="sortOptionsMenu" class="d-flex col-4 offset-4 justify-content-around mb-5">
+                <div id="sortOptionsMenu" class="d-flex justify-content-center flex-wrap gap-3 mb-5">
                     <div class="dropdown">
                         <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Choose Region
@@ -275,8 +358,8 @@
                             </li>
                         </ul>
                     </div>
-                    <xsl:call-template name="allRestaurantsTempl" />
                 </div>
+                <xsl:call-template name="allRestaurantsTempl" />
             </xsl:when>
             <xsl:otherwise>
                 <xsl:call-template name="oneRestaurantTempl" />
@@ -285,73 +368,81 @@
     </xsl:template>
 
     <xsl:template name="allRestaurantsTempl">
-        <div class="d-flex flex-wrap">
-            <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
-                <xsl:choose>
-                    <xsl:when test="$sortOn='name'">
-                        <xsl:sort select="name" order="$sortOrder" data-type="text"/>
-                    </xsl:when>
-                    <xsl:when test="$sortOn='rating'">
-                        <xsl:sort select="number(rating)" order="$sortOrder" data-type="number"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <!-- Default, no sorting -->
-                    </xsl:otherwise>
-                </xsl:choose>
+        <div class="restaurants-container d-flex flex-wrap justify-content-center">
+            <xsl:choose>
+                <xsl:when test="$sortOn='name'">
+                    <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
+                        <xsl:sort select="name" order="{$sortOrder}" data-type="text"/>
+                        <xsl:call-template name="restaurantTempl" />
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:when test="$sortOn='rating'">
+                    <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
+                        <xsl:sort select="number(rating)" order="{$sortOrder}" data-type="number"/>
+                        <xsl:call-template name="restaurantTempl" />
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
+                        <xsl:call-template name="restaurantTempl" />
+                    </xsl:for-each>
+                </xsl:otherwise>
+            </xsl:choose>
+        </div>
+    </xsl:template>
 
-                <xsl:variable name="regId" select="@region" />
-                <xsl:variable name="chainId" select="@chain" />
-                <xsl:variable name="ratingVal" select="rating"/>
-                
-                <xsl:if test="(($filterOn = 'chain' and $filterValue = $chainId) or
-                       ($filterOn = 'region' and $filterValue = $regId) or
-                       ($filterOn = 'rating' and $ratingVal >= number($filterValue)) or
-                       $filterOn = '')">
+    <xsl:template name="restaurantTempl">
+        <xsl:variable name="regId" select="@region" />
+        <xsl:variable name="chainId" select="@chain" />
+        <xsl:variable name="ratingVal" select="rating"/>
+        
+        <xsl:if test="(($filterOn = 'chain' and $filterValue = $chainId) or
+               ($filterOn = 'region' and $filterValue = $regId) or
+               ($filterOn = 'rating' and $ratingVal >= number($filterValue)) or
+               $filterOn = '')">
 
-                    <div class="col-6" id="{@id}">
-                        <div class="card m-3 align-self-stretch">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{picture/@source}" class="img-fluid rounded-start" />
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body h-100">
-                                        <h5 class="card-title">
-                                            <xsl:value-of select="name"/>
-                                            <small class="text-body-secondary">
-                                                (<xsl:for-each select="categoryList/category">
-                                                    <xsl:value-of select="."/>
-                                                    <xsl:if test="position() != last()">, </xsl:if>
-                                                </xsl:for-each>)
-                                            </small>
-                                        </h5>
-                                        <p class="card-text">
-                                            <xsl:call-template name="regionTempl">
-                                                <xsl:with-param name="regId" select="$regId"/>
-                                            </xsl:call-template>
-                                        </p>
-                                        <xsl:if test="$chainId != ''">
-                                            <p class="card-text">
-                                                Part of: <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
-                                            </p>
-                                        </xsl:if>
-                                        <p class="card-text text-body-secondary">
-                                            Rating: <xsl:value-of select="rating"/> / 10
-                                        </p>
-                                        <div class="align-bottom-right">
-                                            <button class="btn btn-primary showMoreBut" onclick="showInfoRestaurant('{@id}')">
-                                                Show more info
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="restaurant-card-wrapper px-2" id="{@id}">
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="{picture/@source}" class="img-fluid" alt="{name}" />
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">
+                            <xsl:value-of select="name"/>
+                        </h5>
+                        <div class="mb-2">
+                            <xsl:for-each select="categoryList/category">
+                                <span class="category-badge">
+                                    <xsl:value-of select="."/>
+                                </span>
+                            </xsl:for-each>
+                        </div>
+                        <p class="card-text">
+                            <i class="fa fa-map-marker location-icon"></i>
+                            <xsl:call-template name="regionTempl">
+                                <xsl:with-param name="regId" select="$regId"/>
+                            </xsl:call-template>
+                        </p>
+                        <xsl:if test="$chainId != ''">
+                            <p class="card-text">
+                                <i class="fa fa-building chain-icon"></i>
+                                <strong>Chain:</strong> <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
+                            </p>
+                        </xsl:if>
+                        <div class="mt-auto">
+                            <span class="rating-badge">
+                                <i class="fa fa-star"></i> <xsl:value-of select="rating"/> / 10
+                            </span>
+                            <div class="mt-3">
+                                <button class="btn btn-primary showMoreBut w-100" onclick="showInfoRestaurant('{@id}')">
+                                    <i class="fa fa-info-circle"></i> Show More Details
+                                </button>
                             </div>
                         </div>
-                    </div>   
-                </xsl:if>
-            </xsl:for-each>
-        </div>
-
+                    </div>
+                </div>
+            </div>   
+        </xsl:if>
     </xsl:template>
 
     <xsl:template name="oneRestaurantTempl">
