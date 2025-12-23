@@ -352,3 +352,168 @@
         </div>
 
     </xsl:template>
+
+    <xsl:template name="oneRestaurantTempl">
+        <xsl:variable name="restaurant" select="/restaurantCatalogue/restaurants/restaurant[@id=$showId]" />
+        <xsl:variable name="regId" select="$restaurant/@region" />
+        <xsl:variable name="chainId" select="$restaurant/@chain" />
+
+        <div>
+            <h1 class="text-center mb-4">
+                <xsl:value-of select="$restaurant/name"/>
+                <small class="text-body-secondary">
+                    (<xsl:for-each select="$restaurant/categoryList/category">
+                        <xsl:value-of select="."/>
+                        <xsl:if test="position()!=last()">, </xsl:if>
+                    </xsl:for-each>)
+                </small>
+            </h1>
+
+            <div class="d-flex">
+                <div id="carouselRestaurant" class="carousel slide col-6" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{$restaurant/picture/@source}" class="d-block w-100" style="max-height:70vh"/>
+                        </div>
+                        <xsl:for-each select="$restaurant/gallery/image">
+                            <div class="carousel-item">
+                                <img src="{@source}" class="d-block w-100" style="max-height:70vh"/>
+                            </div>
+                        </xsl:for-each>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselRestaurant" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselRestaurant" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                </div>
+
+                <div class="col-5 ms-4">
+                    <p>
+                        <strong>Located in:</strong>
+                        <xsl:call-template name="regionShow">
+                            <xsl:with-param name="regId" select="$regId"/>
+                        </xsl:call-template>
+                    </p>
+                    <p>
+                        <strong>Address:</strong> 
+                        <xsl:value-of select="$restaurant/address"/>
+                    </p>
+                    <xsl:if test="$restaurant/@chain != ''">
+                        <p>
+                            <strong>Part of:</strong> 
+                            <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
+                        </p>
+                    </xsl:if>
+                    <p>
+                        <strong>Capacity:</strong> 
+                        <xsl:value-of select="$restaurant/capacity"/>
+                    </p>
+                    <xsl:if test="$restaurant/workingHours != ''">
+                        <p>
+                            <strong>Working hours:</strong> 
+                            <xsl:value-of select="$restaurant/workingHours"/>
+                        </p>
+                    </xsl:if>
+                    <p>
+                        <strong>Rating:</strong> 
+                        <xsl:value-of select="$restaurant/rating"/> / 10
+                    </p>
+                    <p>
+                        <strong>Price:</strong> 
+                        <xsl:value-of select="$restaurant/priceCategory"/>
+                    </p>
+                    <p>
+                        <xsl:value-of select="$restaurant/description"/>
+                    </p>
+
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary" onclick="showAllRestaurants()">Show all restaurants</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-10 offset-1 my-3">
+                <div class="d-flex flex-wrap justify-content-around">
+                    <xsl:for-each select="$restaurant/services/@*">
+                        <div class="btn btn-outline-dark mx-2 my-1 disabled">
+                            <xsl:value-of select="name()"/>
+                            <xsl:choose>
+                                <xsl:when test=".='true'">
+                                    <span class="fa fa-check text-success"></span>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <span class="fa fa-times text-danger"></span>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </div>
+                    </xsl:for-each>
+                </div>
+            </div>
+
+            <xsl:call-template name="menuTemplate">
+                <xsl:with-param name="menu" select="$restaurant/menu"/>
+            </xsl:call-template>  
+        </div>
+    </xsl:template>
+
+    <xsl:template name="menuTemplate">
+        <xsl:param name="menu"/>
+
+        <div class="col-10 offset-1 my-4">
+            <h3>Menu</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Dish</th>
+                        <th>Price</th>
+                        <th>Ingredients</th>
+                        <th>Allergens</th>
+                        <th>Diet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <xsl:for-each select="$menu/dish">
+                        <xsl:sort select="number(price)" data-type="number" order="ascending"/>
+                        <tr>
+                            <td><xsl:value-of select="name"/></td>
+                            <td><xsl:value-of select="price"/></td>
+                            <td><xsl:value-of select="ingredients"/></td>
+                            <td>
+                                <xsl:for-each select="alergens/@*">
+                                    <xsl:value-of select="name()"/>
+                                    <xsl:choose>
+                                        <xsl:when test=".='true' or .='1'">
+                                            <span class="fa fa-check text-success"></span>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <span class="fa fa-times text-danger"></span>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                    <xsl:text> </xsl:text>
+                                </xsl:for-each>
+                            </td>
+                            <td>
+                                <xsl:for-each select="diet/@*">
+                                    <xsl:value-of select="name()"/>
+                                    <xsl:choose>
+                                        <xsl:when test=".='true' or .='1'">
+                                            <span class="fa fa-check text-success"></span>
+                                        </xsl:when>
+                                        <xsl:otherwise>
+                                            <span class="fa fa-times text-danger"></span>
+                                        </xsl:otherwise>
+                                    </xsl:choose>
+                                    <xsl:text> </xsl:text>
+                                </xsl:for-each>
+                            </td>
+                        </tr>
+                    </xsl:for-each>
+                </tbody>
+            </table>
+        </div>
+    </xsl:template>
