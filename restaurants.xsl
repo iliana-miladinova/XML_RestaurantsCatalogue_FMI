@@ -517,3 +517,16 @@
             </table>
         </div>
     </xsl:template>
+
+    <xsl:template name="regionShow">
+        <xsl:param name="regId"/>
+        <span>
+            <xsl:value-of select="/catalogue/regions/region[@id=$regId]/country" />
+            <xsl:text>, </xsl:text>
+            <xsl:value-of select="/catalogue/regions/region[@id=$regId]/municipality" />
+            <xsl:text>, </xsl:text>
+            <xsl:value-of select="/catalogue/regions/region[@id=$regId]/city" />
+        </span>
+    </xsl:template>
+
+</xsl:stylesheet>
