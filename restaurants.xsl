@@ -376,6 +376,26 @@
                     </div>
 
                     <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                            Choose Price Category
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>        
+                                <button onclick="filterBy('','')" class="dropdown-item">All price Categories</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('price','$')" class="dropdown-item">$</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('price','$$')" class="dropdown-item">$$</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('price','$$$')" class="dropdown-item">$$$</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
                         <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Order by
                         </button>
@@ -394,6 +414,18 @@
                             </li>
                             <li>
                                 <button onclick="orderBy('name','descending','text')" class="dropdown-item">Z-A</button>
+                            </li>
+                            <li>
+                                <button onclick="orderBy('priceCategory','ascending','text')" class="dropdown-item">Price Category ↑</button>
+                            </li>
+                            <li>
+                                <button onclick="orderBy('priceCategory','descending','text')" class="dropdown-item">Price Category ↓</button>
+                            </li>
+                            <li>
+                                <button onclick="orderBy('chain','ascending','text')" class="dropdown-item">Chain ↑</button>
+                            </li>
+                            <li>
+                                <button onclick="orderBy('chain','descending','text')" class="dropdown-item">Chain ↓</button>
                             </li>
                         </ul>
                     </div>
@@ -421,6 +453,18 @@
                         <xsl:call-template name="restaurantTempl" />
                     </xsl:for-each>
                 </xsl:when>
+                <xsl:when test="$sortOn='priceCategory'">
+                    <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
+                        <xsl:sort select="priceCategory" order="{$sortOrder}" data-type="text"/>
+                        <xsl:call-template name="restaurantTempl" />
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:when test="$sortOn='chain'">
+                    <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
+                        <xsl:sort select="/restaurantCatalogue/chains/chain[@id=current()/@chain]" order="{$sortOrder}" data-type="text"/>
+                        <xsl:call-template name="restaurantTempl" />
+                    </xsl:for-each>
+                </xsl:when>
                 <xsl:otherwise>
                     <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
                         <xsl:call-template name="restaurantTempl" />
@@ -439,6 +483,7 @@
                ($filterOn = 'region' and $filterValue = $regId) or
                ($filterOn = 'rating' and $ratingVal >= number($filterValue)) or
                ($filterOn = 'category' and categoryList/category = $filterValue) or
+               ($filterOn = 'price' and priceCategory = $filterValue) or
                $filterOn = '')">
 
             <div class="restaurant-card-wrapper px-2" id="{@id}">
@@ -452,8 +497,10 @@
                         </h5>
                         <div class="mb-2">
                             <xsl:for-each select="categoryList/category">
-                                <span class="category-badge">
-                                    <xsl:value-of select="."/>
+                                <span class="restaurant-category">
+                                    <xsl:call-template name="categoryLabel">
+                                        <xsl:with-param name="cat" select="."/>
+                                    </xsl:call-template>
                                 </span>
                             </xsl:for-each>
                         </div>
@@ -469,8 +516,12 @@
                                 <strong>Chain:</strong> <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
                             </p>
                         </xsl:if>
+                        <p class="card-text">
+                            <i class="fa fa-dollar"></i>
+                            <strong> Price Category:</strong> <xsl:value-of select="priceCategory"/>
+                        </p>
                         <div class="mt-auto">
-                            <span class="rating-badge">
+                            <span class="restaurant-rating">
                                 <i class="fa fa-star"></i> <xsl:value-of select="rating"/> / 10
                             </span>
                             <div class="mt-3">
@@ -495,7 +546,9 @@
                 <xsl:value-of select="$restaurant/name"/>
                 <small class="text-body-secondary">
                     (<xsl:for-each select="$restaurant/categoryList/category">
-                        <xsl:value-of select="."/>
+                        <xsl:call-template name="categoryLabel">
+                            <xsl:with-param name="cat" select="."/>
+                        </xsl:call-template>
                         <xsl:if test="position()!=last()">, </xsl:if>
                     </xsl:for-each>)
                 </small>
@@ -535,6 +588,20 @@
                         <strong>Address:</strong> 
                         <xsl:value-of select="$restaurant/address"/>
                     </p>
+                    <xsl:if test="$restaurant/phone != ''">
+                        <p>
+                            <strong>Phone:</strong> 
+                            <xsl:value-of select="$restaurant/phone"/>
+                        </p>
+                    </xsl:if>
+                    <xsl:if test="$restaurant/website != ''">
+                        <p>
+                            <strong>Website:</strong> 
+                            <a href="{$restaurant/website}" target="_blank">
+                                <xsl:value-of select="$restaurant/website"/>
+                            </a>
+                        </p>
+                    </xsl:if>
                     <xsl:if test="$restaurant/@chain != ''">
                         <p>
                             <strong>Part of:</strong> 
@@ -653,12 +720,31 @@
     <xsl:template name="regionTempl">
         <xsl:param name="regId"/>
         <span>
-            <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/country" />
+            <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/regionName" />
             <xsl:text>, </xsl:text>
             <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/municipality" />
             <xsl:text>, </xsl:text>
             <xsl:value-of select="/restaurantCatalogue/regions/region[@id=$regId]/city" />
         </span>
     </xsl:template>
+
+    <xsl:template name="categoryLabel">
+        <xsl:param name="cat"/>
+
+        <xsl:choose>
+            <xsl:when test="$cat = 'fish'">Fish restaurant</xsl:when>
+            <xsl:when test="$cat = 'vegan'">Vegan restaurant</xsl:when>
+            <xsl:when test="$cat = 'vegetarian'">Vegetarian restaurant</xsl:when>
+            <xsl:when test="$cat = 'asian'">Asian restaurant</xsl:when>
+            <xsl:when test="$cat = 'italian'">Italian restaurant</xsl:when>
+            <xsl:when test="$cat = 'bulgarian'">Bulgarian restaurant</xsl:when>
+            <xsl:when test="$cat = 'fastFood'">Fast food</xsl:when>
+            <xsl:when test="$cat = 'grill'">Grill restaurant</xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="$cat"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
 
 </xsl:stylesheet>

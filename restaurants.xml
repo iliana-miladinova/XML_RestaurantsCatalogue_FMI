@@ -36,7 +36,7 @@
     </restaurants>
     <regions>
         <region id="reg1">
-            <country>България</country>
+            <regionName>България</regionName>
             <municipality>Столична</municipality>
             <city>София</city>
         </region>
