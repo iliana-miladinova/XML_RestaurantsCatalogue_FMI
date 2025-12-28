@@ -311,7 +311,7 @@
                     </div>
 
                     <div class="dropdown">
-                        <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Choose Rating
                         </button>
                         <ul class="dropdown-menu">
@@ -333,6 +333,45 @@
                             <li>
                                 <button onclick="filterBy('rating','5')" class="dropdown-item">5 &amp; up</button>
                             </li>
+                        </ul>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn btn-info dropdown-toggle" type="button"  data-bs-toggle="dropdown" aria-expanded="false">
+                            Choose Category
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button onclick="filterBy('','')" class="dropdown-item">
+                                    All categories
+                                </button>
+                            </li>
+
+                            <li>
+                                <button onclick="filterBy('category','fish')" class="dropdown-item">Fish</button>
+                            </li>
+                            <li>    
+                                <button onclick="filterBy('category','vegan')" class="dropdown-item">Vegan</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('category','vegetarian')" class="dropdown-item">Vegetarian</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('category','asian')" class="dropdown-item">Asian</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('category','italian')" class="dropdown-item">Italian</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('category','bulgarian')" class="dropdown-item">Bulgarian</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('category','fastFood')" class="dropdown-item">Fast Food</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('category','grill')" class="dropdown-item">Grill</button>
+                            </li>
+
                         </ul>
                     </div>
 
@@ -399,6 +438,7 @@
         <xsl:if test="(($filterOn = 'chain' and $filterValue = $chainId) or
                ($filterOn = 'region' and $filterValue = $regId) or
                ($filterOn = 'rating' and $ratingVal >= number($filterValue)) or
+               ($filterOn = 'category' and categoryList/category = $filterValue) or
                $filterOn = '')">
 
             <div class="restaurant-card-wrapper px-2" id="{@id}">

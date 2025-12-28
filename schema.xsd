@@ -68,8 +68,8 @@
             <xs:enumeration value="asian" />
             <xs:enumeration value="italian" />
             <xs:enumeration value="bulgarian" />
-             <xs:enumeration value="fastFood" />
-             <xs:enumeration value="grill" />
+            <xs:enumeration value="fastFood" />
+            <xs:enumeration value="grill" />
         </xs:restriction>
     </xs:simpleType>
     
