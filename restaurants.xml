@@ -1,51 +1,402 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?xml-stylesheet type="text/xsl" href="restaurants.xsl"?>
-<!DOCTYPE restaurantCatalogue SYSTEM "restaurants.dtd" [
-	<!ATTLIST restaurantCatalogue
-		xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
-		xsi:noNamespaceSchemaLocation CDATA #FIXED "schema.xsd">]>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE restaurantCatalogue [
+<!NOTATION jpeg SYSTEM "image/jpeg">
 
-<restaurantCatalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
+<!ENTITY r1_img0 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/01.jpg" NDATA jpeg>
+<!ENTITY r1_img1 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/02.jpg" NDATA jpeg>
+<!ENTITY r1_img2 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/03.jpg" NDATA jpeg>
+<!ENTITY r1_img3 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/04.jpg" NDATA jpeg>
+<!ENTITY r1_img4 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/05.jpg" NDATA jpeg>
+
+<!ENTITY r2_img0 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/01.jpg" NDATA jpeg>
+<!ENTITY r2_img1 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/02.jpg" NDATA jpeg>
+<!ENTITY r2_img2 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/03.jpg" NDATA jpeg>
+<!ENTITY r2_img3 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/04.jpg" NDATA jpeg>
+<!ENTITY r2_img4 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/07.jpg" NDATA jpeg>
+
+<!ENTITY r3_img0 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-2.jpg" NDATA jpeg>
+<!ENTITY r3_img1 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-3.jpg" NDATA jpeg>
+<!ENTITY r3_img2 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-4.jpg" NDATA jpeg>
+<!ENTITY r3_img3 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-5.jpg" NDATA jpeg>
+<!ENTITY r3_img4 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-6.jpg" NDATA jpeg>
+
+<!ENTITY r4_img0 SYSTEM "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/1a/bc/6c/interior.jpg" NDATA jpeg>
+<!ENTITY r4_img1 SYSTEM "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c3/8c/7f/nezih.jpg" NDATA jpeg>
+<!ENTITY r4_img2 SYSTEM "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/6b/68/b3/gusto-ristorante-pizza.jpg" NDATA jpeg>
+
+<!ENTITY r5_img0 SYSTEM "https://www.restaurant.bg/img/entities/409/interior.jpg" NDATA jpeg>
+<!ENTITY r5_img1 SYSTEM "https://www.restaurant.bg/img/entities/409/interior_06.jpg" NDATA jpeg>
+<!ENTITY r5_img2 SYSTEM "https://www.restaurant.bg/img/entities/409/garden%20zlatna%20ribka.jpg" NDATA jpeg>
+
+<!ENTITY r6_img0 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980744_1200_487874034_998017865851432_3110206034910229491_n.jpg" NDATA jpeg>
+<!ENTITY r6_img1 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980744_1200_489859472_1005854968401055_6687555144262395549_n.jpg" NDATA jpeg>
+<!ENTITY r6_img2 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980746_1200_486956284_998221319164420_182686256523518302_n.jpg" NDATA jpeg>
+<!ENTITY r6_img3 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980747_1200_487097114_998031049183447_3515259458419792400_n.jpg" NDATA jpeg>
+<!ENTITY r6_img4 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980748_1200_487141945_997608549225697_999320985020072886_n.jpg" NDATA jpeg>
+<!ENTITY r6_img5 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980804_1200_00%20team.jpg" NDATA jpeg>
+
+<!ENTITY r7_img0 SYSTEM "https://www.restaurant.bg/img/entities/5165/1.jpg" NDATA jpeg>
+<!ENTITY r7_img1 SYSTEM "https://www.restaurant.bg/img/entities/5165/IMG_6964.jpg" NDATA jpeg>
+<!ENTITY r7_img2 SYSTEM "https://www.restaurant.bg/img/entities/5165/IMG_6956.jpg" NDATA jpeg>
+<!ENTITY r7_img3 SYSTEM "https://www.restaurant.bg/img/entities/5165/3.jpg" NDATA jpeg>
+
+<!ENTITY r8_img0 SYSTEM "https://www.restaurant.bg/img/entities/4955/KVK_3949.jpg" NDATA jpeg>
+<!ENTITY r8_img1 SYSTEM "https://www.restaurant.bg/img/entities/4955/KVK_4013.jpg" NDATA jpeg>
+<!ENTITY r8_img2 SYSTEM "https://www.restaurant.bg/img/entities/4955/KVK_4091.jpg" NDATA jpeg>
+
+<!ENTITY r9_img0 SYSTEM "https://www.restaurant.bg/img/entities/5167/1573111312_1200_1-beso-interior-web-5.jpg" NDATA jpeg>
+<!ENTITY r9_img1 SYSTEM "https://www.restaurant.bg/img/entities/5167/1573111627_1200_3.jpg" NDATA jpeg>
+<!ENTITY r9_img2 SYSTEM "https://www.restaurant.bg/img/entities/5167/1573111628_1200_5.jpg" NDATA jpeg>
+
+<!ENTITY r10_img0 SYSTEM "https://www.restaurant.bg/img/entities/4978/1495535353_1200_17038497_1895662577379075_8900319286293745508_o.jpg" NDATA jpeg>
+<!ENTITY r10_img1 SYSTEM "https://www.restaurant.bg/img/entities/4978/1495535354_1200_17038756_1895662644045735_1864526691811403141_o.jpg" NDATA jpeg>
+<!ENTITY r10_img2 SYSTEM "https://www.restaurant.bg/img/entities/4978/1495535472_1200_12363120_1684956648449670_5760610126725542705_o.jpg" NDATA jpeg>
+
+]>
+<restaurantCatalogue>
     <restaurants>
-        <restaurant id="r1" region="reg1" chain="c1">
-            <name>SPAGHETTI COMPANY – България Мол</name>
+
+        <restaurant id="res1" region="r_sofia" chain="c_spaghetti">
+            <name>Spaghetti Company – Bulgaria Mall</name>
             <categoryList>
                 <category>italian</category>
+                <category>vegetarian</category>
             </categoryList>
-            <picture source="http://www.spaghetti-company.com/img/locations/bulgaria/01.jpg"/>
-            <address>бул. България 69</address>
-            <phone>02 9950950</phone>
-            <website>https://spaghetti-company.com</website>
-            <capacity>160</capacity>
-            <workingHours>10:00-22:00</workingHours>
-            <rating>4.6</rating>
+            <picture source="r1_img0"/>
+            <address>Bulgaria Mall, Sofia</address>
+            <phone>+359 2 123 4567</phone>
+            <website>http://www.spaghetti-company.com</website>
+            <capacity>90</capacity>
+            <workingHours>10:00 - 23:00</workingHours>
+            <rating>8.6</rating>
             <priceCategory>$$</priceCategory>
+            <description>A modern Italian restaurant offering handmade pasta, fresh salads and a cozy atmosphere.</description>
             <gallery>
-                <image source="http://www.spaghetti-company.com/img/locations/bulgaria/02.jpg"/>
-                <image source="http://www.spaghetti-company.com/img/locations/bulgaria/03.jpg"/>
-                <image source="http://www.spaghetti-company.com/img/locations/bulgaria/04.jpg"/>
-                <image source="http://www.spaghetti-company.com/img/locations/bulgaria/05.jpg"/>
+                <image source="r1_img1"/>
+                <image source="r1_img2"/>
+                <image source="r1_img3"/>
+                <image source="r1_img4"/>
             </gallery>
-            <services wifi="true" parking="true" airConditioning="true"/>
+            <services wifi="true" reservations="true" veganOptions="true"/>
             <menu>
                 <dish>
-                    <name>Spaghetti Carbonara</name>
-                    <price>16.90</price>
-                    <ingredients>Спагети, яйца, бекон, пармезан</ingredients>
-                    <alergens gluten="true" dairy="true"/>
-                    <diet vegetarian="false"/>
+                <name>Spaghetti Carbonara</name>
+                <price>14.90</price>
+                <ingredients>Pasta, eggs, pancetta, parmesan</ingredients>
+                </dish>
+                <dish>
+                <name>Vegetarian Lasagna</name>
+                <price>13.50</price>
+                <ingredients>Lasagna sheets, vegetables, tomato sauce</ingredients>
+                <diet vegetarian="true"/>
                 </dish>
             </menu>
         </restaurant>
+
+        <restaurant id="res2" region="r_sofia" chain="c_spaghetti">
+            <name>Spaghetti Company – Vitosha Boulevard</name>
+            <categoryList>
+                <category>italian</category>
+            </categoryList>
+            <picture source="r2_img0"/>
+            <address>Vitosha Blvd, Sofia</address>
+            <capacity>80</capacity>
+            <rating>8.4</rating>
+            <priceCategory>$$</priceCategory>
+            <services wifi="true"/>
+            <gallery>
+                <image source="r2_img1"/>
+                <image source="r2_img2"/>
+                <image source="r2_img3"/>
+                <image source="r2_img4"/>
+            </gallery>
+            <menu>
+                <dish>
+                <name>Spaghetti Bolognese</name>
+                <price>15.20</price>
+                </dish>
+                <dish>
+                <name>Margherita Pizza</name>
+                <price>12.00</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <!-- La Terrazza di Serdica -->
+        <restaurant id="res3" region="r_sofia">
+            <name>La Terrazza di Serdica</name>
+            <categoryList>
+                <category>italian</category>
+                <category>bulgarian</category>
+            </categoryList>
+            <picture source="r3_img0"/>
+            <address>Hotel Arena di Serdica, Sofia</address>
+            <capacity>60</capacity>
+            <rating>9.2</rating>
+            <priceCategory>$$$</priceCategory>
+            <services reservations="true" liveMusic="true"/>
+            <gallery>
+                <image source="r3_img1"/>
+                <image source="r3_img2"/>
+                <image source="r3_img3"/>
+                <image source="r3_img4"/>
+            </gallery>
+            <menu>
+                <dish>
+                <name>Grilled Sea Bass</name>
+                <price>26.00</price>
+                </dish>
+                <dish>
+                <name>Tiramisu</name>
+                <price>9.50</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <restaurant id="res4" region="r_plovdiv">
+            <name>GUSTO Ristorante &amp; Pizza</name>
+            <categoryList>
+                <category>italian</category>
+                <category>grill</category>
+            </categoryList>
+            <picture source="r4_img0"/>
+            <address>Main Street 15, Plovdiv</address>
+            <phone>+359 32 555 777</phone>
+            <capacity>75</capacity>
+            <workingHours>11:00 - 22:30</workingHours>
+            <rating>8.7</rating>
+            <priceCategory>$$</priceCategory>
+            <description>Italian restaurant offering wood-fired pizzas, grilled meats and a warm Mediterranean atmosphere.</description>
+            <gallery>
+                <image source="r4_img1"/>
+                <image source="r4_img2"/>
+            </gallery>
+            <services wifi="true" outdoorSeating="true" reservations="true"/>
+            <menu>
+                <dish>
+                <name>Prosciutto Pizza</name>
+                <price>13.80</price>
+                <ingredients>Tomato sauce, mozzarella, prosciutto</ingredients>
+                </dish>
+                <dish>
+                <name>Grilled Chicken Fillet</name>
+                <price>16.50</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+
+        <restaurant id="res5" region="r_burgas">
+            <name>Zlatna Ribka</name>
+            <categoryList>
+                <category>fish</category>
+                <category>bulgarian</category>
+            </categoryList>
+            <picture source="r5_img0"/>
+            <address>Sea Garden, Burgas</address>
+            <capacity>120</capacity>
+            <workingHours>10:00 - 23:00</workingHours>
+            <rating>8.9</rating>
+            <priceCategory>$$</priceCategory>
+            <description>Famous seafood restaurant located near the sea, offering fresh fish and traditional Bulgarian dishes.</description>
+            <gallery>
+                <image source="r5_img1"/>
+                <image source="r5_img2"/>
+            </gallery>
+            <services outdoorSeating="true" parking="true"/>
+            <menu>
+                <dish>
+                <name>Grilled Sea Bream</name>
+                <price>22.00</price>
+                <alergens seafood="true"/>
+                </dish>
+                <dish>
+                <name>Black Sea Mussels</name>
+                <price>14.50</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <restaurant id="res6" region="r_burgas">
+            <name>Neptune</name>
+            <categoryList>
+                <category>fish</category>
+                <category>grill</category>
+            </categoryList>
+            <picture source="r6_img0"/>
+            <address>Port Area, Burgas</address>
+            <capacity>100</capacity>
+            <rating>9.1</rating>
+            <priceCategory>$$$</priceCategory>
+            <description>Elegant seaside restaurant specializing in premium seafood and refined culinary techniques.</description>
+            <gallery>
+                <image source="r6_img1"/>
+                <image source="r6_img2"/>
+                <image source="r6_img3"/>
+                <image source="r6_img4"/>
+                <image source="r6_img5"/>
+            </gallery>
+            <services reservations="true" liveMusic="true"/>
+            <menu>
+                <dish>
+                <name>Lobster Tail</name>
+                <price>45.00</price>
+                <alergens seafood="true"/>
+                </dish>
+                <dish>
+                <name>Octopus Salad</name>
+                <price>21.00</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <restaurant id="res7" region="r_plovdiv" chain="c_raffy">
+            <name>Raffy Bar &amp; Gelato – Trakia</name>
+            <categoryList>
+                <category>italian</category>
+                <category>fastFood</category>
+            </categoryList>
+            <picture source="r7_img0"/>
+            <address>Trakia District, Plovdiv</address>
+            <capacity>85</capacity>
+            <rating>8.3</rating>
+            <priceCategory>$$</priceCategory>
+            <description>Casual restaurant offering pasta, burgers, desserts and homemade gelato.</description>
+            <gallery>
+                <image source="r7_img1"/>
+                <image source="r7_img2"/>
+                <image source="r7_img3"/>
+            </gallery>
+            <services wifi="true" kidsArea="true"/>
+            <menu>
+                <dish>
+                <name>Classic Cheeseburger</name>
+                <price>11.90</price>
+                </dish>
+                <dish>
+                <name>Chocolate Gelato</name>
+                <price>5.50</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <restaurant id="res8" region="r_blagoevgrad" chain="c_raffy">
+            <name>Raffy Bar &amp; Gelato – Blagoevgrad</name>
+            <categoryList>
+                <category>italian</category>
+                <category>fastFood</category>
+            </categoryList>
+            <picture source="r8_img0"/>
+            <address>Central Square, Blagoevgrad</address>
+            <capacity>70</capacity>
+            <rating>8.1</rating>
+            <priceCategory>$$</priceCategory>
+            <description>Popular city restaurant serving Italian-inspired dishes and desserts.</description>
+            <gallery>
+                <image source="r8_img1"/>
+                <image source="r8_img2"/>
+            </gallery>
+            <services wifi="true"/>
+            <menu>
+                <dish>
+                <name>Penne Alfredo</name>
+                <price>13.20</price>
+                </dish>
+                <dish>
+                <name>Vanilla Gelato</name>
+                <price>5.20</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+        <restaurant id="res9" region="r_sofia">
+            <name>Bar &amp; Dinner BESO</name>
+            <categoryList>
+                <category>grill</category>
+                <category>asian</category>
+            </categoryList>
+            <picture source="r9_img0"/>
+            <address>City Center, Sofia</address>
+            <capacity>95</capacity>
+            <rating>9.0</rating>
+            <priceCategory>$$$</priceCategory>
+            <description>Stylish restaurant combining modern cuisine, cocktails and nightlife atmosphere.</description>
+            <gallery>
+                <image source="r9_img1"/>
+                <image source="r9_img2"/>
+            </gallery>
+            <services liveMusic="true" reservations="true"/>
+            <menu>
+                <dish>
+                <name>Beef Tataki</name>
+                <price>24.00</price>
+                </dish>
+                <dish>
+                <name>Salmon Teriyaki</name>
+                <price>26.00</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+            <restaurant id="res10" region="r_sofia">
+            <name>Social Cafe</name>
+            <categoryList>
+                <category>fastFood</category>
+                <category>vegetarian</category>
+            </categoryList>
+            <picture source="r10_img0"/>
+            <address>Graf Ignatiev Street, Sofia</address>
+            <capacity>60</capacity>
+            <rating>8.5</rating>
+            <priceCategory>$</priceCategory>
+            <description>Cozy urban cafe popular for brunch, specialty coffee and vegetarian meals.</description>
+            <gallery>
+                <image source="r10_img1"/>
+                <image source="r10_img2"/>
+            </gallery>
+            <services wifi="true" veganOptions="true"/>
+            <menu>
+                <dish>
+                <name>Avocado Toast</name>
+                <price>9.80</price>
+                <diet vegan="true"/>
+                </dish>
+                <dish>
+                <name>Pancakes with Maple Syrup</name>
+                <price>8.50</price>
+                </dish>
+            </menu>
+        </restaurant>
+
+
     </restaurants>
+
     <regions>
-        <region id="reg1">
-            <regionName>България</regionName>
-            <municipality>Столична</municipality>
-            <city>София</city>
+        <region id="r_sofia">
+            <regionName>Sofia Region</regionName>
+            <municipality>Sofia Municipality</municipality>
+            <city>Sofia</city>
+        </region>
+        <region id="r_plovdiv">
+            <regionName>Plovdiv Region</regionName>
+            <municipality>Plovdiv Municipality</municipality>
+            <city>Plovdiv</city>
+        </region>
+        <region id="r_burgas">
+            <regionName>Burgas Region</regionName>
+            <municipality>Burgas Municipality</municipality>
+            <city>Burgas</city>
+        </region>
+        <region id="r_blagoevgrad">
+            <regionName>Blagoevgrad Region</regionName>
+            <municipality>Blagoevgrad Municipality</municipality>
+            <city>Blagoevgrad</city>
         </region>
     </regions>
+
     <chains>
-        <chain id="c1">SPAGHETTI COMPANY</chain>
+        <chain id="c_spaghetti">Spaghetti Company</chain>
+        <chain id="c_raffy">Raffy Bar &amp; Gelato</chain>
     </chains>
+
 </restaurantCatalogue>
