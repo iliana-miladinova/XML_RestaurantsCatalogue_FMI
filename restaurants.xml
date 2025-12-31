@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type="text/xsl" href="restaurants.xsl"?>
+<!DOCTYPE restaurantCatalogue SYSTEM "restaurants.dtd" [
+	<!ATTLIST restaurantCatalogue
+		xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation CDATA #FIXED "schema.xsd">]>
 
-<restaurantCatalogue>
+<restaurantCatalogue xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schema.xsd">
     <restaurants>
         <restaurant id="r1" region="reg1" chain="c1">
             <name>SPAGHETTI COMPANY – България Мол</name>

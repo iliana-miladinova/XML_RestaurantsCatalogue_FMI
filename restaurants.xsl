@@ -91,7 +91,7 @@
                     }
                     .rating-badge {
                         display: inline-block;
-                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        background: linear-gradient(135deg, #5874eeff 0%, #945fcaff 100%);
                         color: white;
                         padding: 5px 12px;
                         border-radius: 20px;
@@ -102,7 +102,7 @@
                     .category-badge {
                         display: inline-block;
                         background-color: #e9ecef;
-                        color: #495057;
+                        color: #40464cff;
                         padding: 3px 8px;
                         border-radius: 12px;
                         font-size: 0.85rem;
@@ -119,7 +119,7 @@
                         transform: scale(1.05);
                     }
                     .location-icon, .chain-icon {
-                        color: #6c757d;
+                        color: #79828aff;
                         margin-right: 5px;
                     }
                     @media (min-width: 1200px) {
