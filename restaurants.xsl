@@ -159,15 +159,23 @@
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
             <script defer="true">
-                let picUrlsMap = [
-                <xsl:for-each select="//*[boolean(@source)]">
-                    <xsl:text>["</xsl:text>
-                    <xsl:value-of select="@source"/>
-                    <xsl:text>" , "</xsl:text>
-                    <xsl:value-of select="@source"/>
-                    <xsl:text>"], </xsl:text>
-                </xsl:for-each>
-                ];
+                let picUrlsMap = [];
+
+                const loadEntities = async () => {
+                    try {
+                        const xmlResponse = await fetch(xmlDocPath);
+                        const xmlText = await xmlResponse.text();
+                        picUrlsMap = [];
+                        const entityStart = String.fromCharCode(60) + '!ENTITY';
+                        const reg = new RegExp(entityStart + '\\s+(\\w+)\\s+[^"]*"[^"]*"\\s+"([^"]+)"[^>]*>', 'g');
+                        let m;
+                        while ((m = reg.exec(xmlText)) !== null) {
+                            picUrlsMap.push([m[1], m[2]]);
+                        }
+                    } catch(err) {
+                        console.error('Failed to load entities:', err);
+                    }
+                };
 
                 const updatePicSource = () => {
                     picUrlsMap.forEach(e => { document.querySelectorAll(`[src="${e[0]}"]`).forEach(el => el.setAttribute("src",e[1]));
@@ -204,6 +212,8 @@
                         const xmlResponse = await fetch(xmlDocPath);
                         const xmlText = await xmlResponse.text();
                         xmlDoc = parser.parseFromString(xmlText, "application/xml");
+                        
+                        await loadEntities();
                     } catch(e) {
                         console.error("Failed initialization:", e);
                         document.body.innerHTML =
@@ -732,14 +742,14 @@
         <xsl:param name="cat"/>
 
         <xsl:choose>
-            <xsl:when test="$cat = 'fish'">Fish restaurant</xsl:when>
-            <xsl:when test="$cat = 'vegan'">Vegan restaurant</xsl:when>
-            <xsl:when test="$cat = 'vegetarian'">Vegetarian restaurant</xsl:when>
-            <xsl:when test="$cat = 'asian'">Asian restaurant</xsl:when>
-            <xsl:when test="$cat = 'italian'">Italian restaurant</xsl:when>
-            <xsl:when test="$cat = 'bulgarian'">Bulgarian restaurant</xsl:when>
-            <xsl:when test="$cat = 'fastFood'">Fast food</xsl:when>
-            <xsl:when test="$cat = 'grill'">Grill restaurant</xsl:when>
+            <xsl:when test="$cat = 'fish'">Fish restaurant </xsl:when>
+            <xsl:when test="$cat = 'vegan'">Vegan restaurant </xsl:when>
+            <xsl:when test="$cat = 'vegetarian'">Vegetarian restaurant </xsl:when>
+            <xsl:when test="$cat = 'asian'">Asian restaurant </xsl:when>
+            <xsl:when test="$cat = 'italian'">Italian restaurant </xsl:when>
+            <xsl:when test="$cat = 'bulgarian'">Bulgarian restaurant </xsl:when>
+            <xsl:when test="$cat = 'fastFood'">Fast food </xsl:when>
+            <xsl:when test="$cat = 'grill'">Grill restaurant </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="$cat"/>
             </xsl:otherwise>

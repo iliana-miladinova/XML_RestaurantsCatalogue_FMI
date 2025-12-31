@@ -1,58 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE restaurantCatalogue [
-<!NOTATION jpeg SYSTEM "image/jpeg">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet href="restaurants.xsl" type="text/xsl"?>
+<!DOCTYPE restaurantCatalogue  SYSTEM "restaurants.dtd" [
+    <!ATTLIST catalogue
+		xmlns:xsi CDATA #FIXED "http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation CDATA #FIXED "schema.xsd">
 
-<!ENTITY r1_img0 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/01.jpg" NDATA jpeg>
-<!ENTITY r1_img1 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/02.jpg" NDATA jpeg>
-<!ENTITY r1_img2 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/03.jpg" NDATA jpeg>
-<!ENTITY r1_img3 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/04.jpg" NDATA jpeg>
-<!ENTITY r1_img4 SYSTEM "http://www.spaghetti-company.com/img/locations/bulgaria/05.jpg" NDATA jpeg>
+	<!NOTATION jpeg SYSTEM "image/jpeg">
+    <!ENTITY r1_img0 PUBLIC "r1_img0_id" "http://www.spaghetti-company.com/img/locations/bulgaria/01.jpg" NDATA jpeg>
+    <!ENTITY r1_img1 PUBLIC "r1_img1_id" "http://www.spaghetti-company.com/img/locations/bulgaria/02.jpg" NDATA jpeg>
+    <!ENTITY r1_img2 PUBLIC "r1_img2_id" "http://www.spaghetti-company.com/img/locations/bulgaria/03.jpg" NDATA jpeg>
+    <!ENTITY r1_img3 PUBLIC "r1_img3_id" "http://www.spaghetti-company.com/img/locations/bulgaria/04.jpg" NDATA jpeg>
+    <!ENTITY r1_img4 PUBLIC "r1_img4_id" "http://www.spaghetti-company.com/img/locations/bulgaria/05.jpg" NDATA jpeg>
 
-<!ENTITY r2_img0 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/01.jpg" NDATA jpeg>
-<!ENTITY r2_img1 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/02.jpg" NDATA jpeg>
-<!ENTITY r2_img2 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/03.jpg" NDATA jpeg>
-<!ENTITY r2_img3 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/04.jpg" NDATA jpeg>
-<!ENTITY r2_img4 SYSTEM "http://www.spaghetti-company.com/img/locations/vitosha/07.jpg" NDATA jpeg>
+    <!ENTITY r2_img0 PUBLIC "r2_img0_id" "http://www.spaghetti-company.com/img/locations/vitosha/01.jpg" NDATA jpeg>
+    <!ENTITY r2_img1 PUBLIC "r2_img1_id" "http://www.spaghetti-company.com/img/locations/vitosha/02.jpg" NDATA jpeg>
+    <!ENTITY r2_img2 PUBLIC "r2_img2_id" "http://www.spaghetti-company.com/img/locations/vitosha/03.jpg" NDATA jpeg>
+    <!ENTITY r2_img3 PUBLIC "r2_img3_id" "http://www.spaghetti-company.com/img/locations/vitosha/04.jpg" NDATA jpeg>
+    <!ENTITY r2_img4 PUBLIC "r2_img4_id" "http://www.spaghetti-company.com/img/locations/vitosha/07.jpg" NDATA jpeg>
 
-<!ENTITY r3_img0 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-2.jpg" NDATA jpeg>
-<!ENTITY r3_img1 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-3.jpg" NDATA jpeg>
-<!ENTITY r3_img2 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-4.jpg" NDATA jpeg>
-<!ENTITY r3_img3 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-5.jpg" NDATA jpeg>
-<!ENTITY r3_img4 SYSTEM "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-6.jpg" NDATA jpeg>
+    <!ENTITY r3_img0 PUBLIC "r3_img0_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-2.jpg" NDATA jpeg>
+    <!ENTITY r3_img1 PUBLIC "r3_img1_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-3.jpg" NDATA jpeg>
+    <!ENTITY r3_img2 PUBLIC "r3_img2_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-4.jpg" NDATA jpeg>
+    <!ENTITY r3_img3 PUBLIC "r3_img3_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-5.jpg" NDATA jpeg>
+    <!ENTITY r3_img4 PUBLIC "r3_img4_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-6.jpg" NDATA jpeg>
 
-<!ENTITY r4_img0 SYSTEM "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/1a/bc/6c/interior.jpg" NDATA jpeg>
-<!ENTITY r4_img1 SYSTEM "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c3/8c/7f/nezih.jpg" NDATA jpeg>
-<!ENTITY r4_img2 SYSTEM "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/6b/68/b3/gusto-ristorante-pizza.jpg" NDATA jpeg>
+    <!ENTITY r4_img0 PUBLIC "r4_img0_id" "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/1a/bc/6c/interior.jpg" NDATA jpeg>
+    <!ENTITY r4_img1 PUBLIC "r4_img1_id" "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c3/8c/7f/nezih.jpg" NDATA jpeg>
+    <!ENTITY r4_img2 PUBLIC "r4_img2_id" "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/6b/68/b3/gusto-ristorante-pizza.jpg" NDATA jpeg>
 
-<!ENTITY r5_img0 SYSTEM "https://www.restaurant.bg/img/entities/409/interior.jpg" NDATA jpeg>
-<!ENTITY r5_img1 SYSTEM "https://www.restaurant.bg/img/entities/409/interior_06.jpg" NDATA jpeg>
-<!ENTITY r5_img2 SYSTEM "https://www.restaurant.bg/img/entities/409/garden%20zlatna%20ribka.jpg" NDATA jpeg>
+    <!ENTITY r5_img0 PUBLIC "r5_img0_id" "https://www.restaurant.bg/img/entities/409/interior.jpg" NDATA jpeg>
+    <!ENTITY r5_img1 PUBLIC "r5_img1_id" "https://www.restaurant.bg/img/entities/409/interior_06.jpg" NDATA jpeg>
+    <!ENTITY r5_img2 PUBLIC "r5_img2_id" "https://www.restaurant.bg/img/entities/409/garden%20zlatna%20ribka.jpg" NDATA jpeg>
 
-<!ENTITY r6_img0 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980744_1200_487874034_998017865851432_3110206034910229491_n.jpg" NDATA jpeg>
-<!ENTITY r6_img1 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980744_1200_489859472_1005854968401055_6687555144262395549_n.jpg" NDATA jpeg>
-<!ENTITY r6_img2 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980746_1200_486956284_998221319164420_182686256523518302_n.jpg" NDATA jpeg>
-<!ENTITY r6_img3 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980747_1200_487097114_998031049183447_3515259458419792400_n.jpg" NDATA jpeg>
-<!ENTITY r6_img4 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980748_1200_487141945_997608549225697_999320985020072886_n.jpg" NDATA jpeg>
-<!ENTITY r6_img5 SYSTEM "https://www.restaurant.bg/img/entities/4659/1744980804_1200_00%20team.jpg" NDATA jpeg>
+    <!ENTITY r6_img0 PUBLIC "r6_img0_id" "https://www.restaurant.bg/img/entities/4659/1744980744_1200_487874034_998017865851432_3110206034910229491_n.jpg" NDATA jpeg>
+    <!ENTITY r6_img1 PUBLIC "r6_img1_id" "https://www.restaurant.bg/img/entities/4659/1744980744_1200_489859472_1005854968401055_6687555144262395549_n.jpg" NDATA jpeg>
+    <!ENTITY r6_img2 PUBLIC "r6_img2_id" "https://www.restaurant.bg/img/entities/4659/1744980746_1200_486956284_998221319164420_182686256523518302_n.jpg" NDATA jpeg>
+    <!ENTITY r6_img3 PUBLIC "r6_img3_id" "https://www.restaurant.bg/img/entities/4659/1744980747_1200_487097114_998031049183447_3515259458419792400_n.jpg" NDATA jpeg>
+    <!ENTITY r6_img4 PUBLIC "r6_img4_id" "https://www.restaurant.bg/img/entities/4659/1744980748_1200_487141945_997608549225697_999320985020072886_n.jpg" NDATA jpeg>
+    <!ENTITY r6_img5 PUBLIC "r6_img5_id" "https://www.restaurant.bg/img/entities/4659/1744980804_1200_00%20team.jpg" NDATA jpeg>
 
-<!ENTITY r7_img0 SYSTEM "https://www.restaurant.bg/img/entities/5165/1.jpg" NDATA jpeg>
-<!ENTITY r7_img1 SYSTEM "https://www.restaurant.bg/img/entities/5165/IMG_6964.jpg" NDATA jpeg>
-<!ENTITY r7_img2 SYSTEM "https://www.restaurant.bg/img/entities/5165/IMG_6956.jpg" NDATA jpeg>
-<!ENTITY r7_img3 SYSTEM "https://www.restaurant.bg/img/entities/5165/3.jpg" NDATA jpeg>
+    <!ENTITY r7_img0 PUBLIC "r7_img0_id" "https://www.restaurant.bg/img/entities/5165/1.jpg" NDATA jpeg>
+    <!ENTITY r7_img1 PUBLIC "r7_img1_id" "https://www.restaurant.bg/img/entities/5165/IMG_6964.jpg" NDATA jpeg>
+    <!ENTITY r7_img2 PUBLIC "r7_img2_id" "https://www.restaurant.bg/img/entities/5165/IMG_6956.jpg" NDATA jpeg>
+    <!ENTITY r7_img3 PUBLIC "r7_img3_id" "https://www.restaurant.bg/img/entities/5165/3.jpg" NDATA jpeg>
 
-<!ENTITY r8_img0 SYSTEM "https://www.restaurant.bg/img/entities/4955/KVK_3949.jpg" NDATA jpeg>
-<!ENTITY r8_img1 SYSTEM "https://www.restaurant.bg/img/entities/4955/KVK_4013.jpg" NDATA jpeg>
-<!ENTITY r8_img2 SYSTEM "https://www.restaurant.bg/img/entities/4955/KVK_4091.jpg" NDATA jpeg>
+    <!ENTITY r8_img0 PUBLIC "r8_img0_id" "https://www.restaurant.bg/img/entities/4955/KVK_3949.jpg" NDATA jpeg>
+    <!ENTITY r8_img1 PUBLIC "r8_img1_id" "https://www.restaurant.bg/img/entities/4955/KVK_4013.jpg" NDATA jpeg>
+    <!ENTITY r8_img2 PUBLIC "r8_img2_id" "https://www.restaurant.bg/img/entities/4955/KVK_4091.jpg" NDATA jpeg>
 
-<!ENTITY r9_img0 SYSTEM "https://www.restaurant.bg/img/entities/5167/1573111312_1200_1-beso-interior-web-5.jpg" NDATA jpeg>
-<!ENTITY r9_img1 SYSTEM "https://www.restaurant.bg/img/entities/5167/1573111627_1200_3.jpg" NDATA jpeg>
-<!ENTITY r9_img2 SYSTEM "https://www.restaurant.bg/img/entities/5167/1573111628_1200_5.jpg" NDATA jpeg>
+    <!ENTITY r9_img0 PUBLIC "r9_img0_id" "https://www.restaurant.bg/img/entities/5167/1573111312_1200_1-beso-interior-web-5.jpg" NDATA jpeg>
+    <!ENTITY r9_img1 PUBLIC "r9_img1_id" "https://www.restaurant.bg/img/entities/5167/1573111627_1200_3.jpg" NDATA jpeg>
+    <!ENTITY r9_img2 PUBLIC "r9_img2_id" "https://www.restaurant.bg/img/entities/5167/1573111628_1200_5.jpg" NDATA jpeg>
 
-<!ENTITY r10_img0 SYSTEM "https://www.restaurant.bg/img/entities/4978/1495535353_1200_17038497_1895662577379075_8900319286293745508_o.jpg" NDATA jpeg>
-<!ENTITY r10_img1 SYSTEM "https://www.restaurant.bg/img/entities/4978/1495535354_1200_17038756_1895662644045735_1864526691811403141_o.jpg" NDATA jpeg>
-<!ENTITY r10_img2 SYSTEM "https://www.restaurant.bg/img/entities/4978/1495535472_1200_12363120_1684956648449670_5760610126725542705_o.jpg" NDATA jpeg>
-
+    <!ENTITY r10_img0 PUBLIC "r10_img0_id" "https://www.restaurant.bg/img/entities/4978/1495535353_1200_17038497_1895662577379075_8900319286293745508_o.jpg" NDATA jpeg>
+    <!ENTITY r10_img1 PUBLIC "r10_img1_id" "https://www.restaurant.bg/img/entities/4978/1495535354_1200_17038756_1895662644045735_1864526691811403141_o.jpg" NDATA jpeg>
+    <!ENTITY r10_img2 PUBLIC "r10_img2_id" "https://www.restaurant.bg/img/entities/4978/1495535472_1200_12363120_1684956648449670_5760610126725542705_o.jpg" NDATA jpeg>
 ]>
+
 <restaurantCatalogue>
     <restaurants>
 
