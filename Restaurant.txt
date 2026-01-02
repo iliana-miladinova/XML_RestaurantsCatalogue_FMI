@@ -1,12 +1,12 @@
 Restaurant:
--id?
+-id
 -name
 -picture(thumbnail)
 -chain
--chainId?
+-chainId
 -region
 -city
--cityId?
+-cityId
 -address
 -phone
 -website
@@ -25,3 +25,4 @@ Restaurant:
 		-name
 		-price
 		-ingredients
+		
