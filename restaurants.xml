@@ -59,7 +59,6 @@
 
 <restaurantCatalogue>
     <restaurants>
-
         <restaurant id="res1" region="r_sofia" chain="c_spaghetti">
             <name>Spaghetti Company – Bulgaria Mall</name>
             <categoryList>
@@ -140,7 +139,7 @@
             <address>Paradise Mall, Sofia</address>
             <phone>0886 000 700</phone>
             <website>https://happy.bg/restaurants/20/happy-mol-paradays-sofiya</website>
-            <capacity>200</capacity>
+            <capacity>90</capacity>
             <workingHours>12:00 - 22:30</workingHours>
             <rating>4.5</rating>
             <priceCategory>$$</priceCategory>
@@ -168,7 +167,6 @@
                 </dish>
             </menu>
         </restaurant>
-
 
         <restaurant id="res4" region="r_plovdiv">
             <name>GUSTO Ristorante &amp; Pizza</name>
@@ -201,7 +199,6 @@
                 </dish>
             </menu>
         </restaurant>
-
 
         <restaurant id="res5" region="r_burgas">
             <name>Zlatna Ribka</name>
