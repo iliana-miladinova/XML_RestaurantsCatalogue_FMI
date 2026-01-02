@@ -36,119 +36,7 @@
                 <title>Restaurants Catalogue</title>
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-                <style>
-                    body {
-                        font-family: Inter, sans-serif;
-                        background-color: #ffafbd;
-                        margin: 0;
-                        padding: 20px;
-                    }
-                    h1 {
-                        text-align: center;
-                        margin-bottom: 30px;
-                    }
-                    #content {
-                        max-width: 1400px;
-                        margin: 0 auto;
-                    }
-                    .card {
-                        margin-bottom: 25px;
-                        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                        border: none;
-                        border-radius: 12px;
-                        overflow: hidden;
-                        transition: transform 0.3s ease, box-shadow 0.3s ease;
-                        height: 100%;
-                    }
-                    .card:hover {
-                        transform: translateY(-5px);
-                        box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-                    }
-                    .card-title {
-                        font-weight: bold;
-                        font-size: 1.3rem;
-                        margin-bottom: 10px;
-                        color: #333;
-                    }
-                    .card-text {
-                        color: #555;
-                        margin-bottom: 8px;
-                        font-size: 0.95rem;
-                    }
-                    .card-img-container {
-                        height: 200px;
-                        overflow: hidden;
-                        background-color: #f0f0f0;
-                    }
-                    .card-img-container img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: transform 0.3s ease;
-                    }
-                    .card:hover .card-img-container img {
-                        transform: scale(1.05);
-                    }
-                    .rating-badge {
-                        display: inline-block;
-                        background: linear-gradient(135deg, #5874eeff 0%, #945fcaff 100%);
-                        color: white;
-                        padding: 5px 12px;
-                        border-radius: 20px;
-                        font-weight: bold;
-                        font-size: 0.9rem;
-                        margin-top: 5px;
-                    }
-                    .category-badge {
-                        display: inline-block;
-                        background-color: #e9ecef;
-                        color: #40464cff;
-                        padding: 3px 8px;
-                        border-radius: 12px;
-                        font-size: 0.85rem;
-                        margin-right: 5px;
-                    }
-                    .showMoreBut {
-                        margin-top: 10px;
-                        border-radius: 25px;
-                        padding: 8px 20px;
-                        font-weight: 500;
-                        transition: all 0.3s ease;
-                    }
-                    .showMoreBut:hover {
-                        transform: scale(1.05);
-                    }
-                    .location-icon, .chain-icon {
-                        color: #79828aff;
-                        margin-right: 5px;
-                    }
-                    @media (min-width: 1200px) {
-                        .restaurant-card-wrapper {
-                            flex: 0 0 48%;
-                            max-width: 48%;
-                        }
-                    }
-                    @media (min-width: 768px) and (max-width: 1199px) {
-                        .restaurant-card-wrapper {
-                            flex: 0 0 48%;
-                            max-width: 48%;
-                        }
-                    }
-                    @media (max-width: 767px) {
-                        .restaurant-card-wrapper {
-                            flex: 0 0 100%;
-                            max-width: 100%;
-                        }
-                    }
-                    .restaurant-card-wrapper {
-                        padding: 0 15px;
-                        box-sizing: border-box;
-                    }
-                    .restaurants-container {
-                        width: 100%;
-                        margin: 0 auto;
-                    }
-                </style>
+                <link rel="stylesheet" href="styles.css" />
             </head>
             <body>
                 <h1 class="text-center mt-5 mb-3 display-4">Restaurants catalogue</h1>
@@ -237,7 +125,7 @@
                     let frag = xsltProcessor.transformToFragment(xmlDoc, document);
 
                     const contentDiv = document.getElementById("content");
-                    contentDiv.replaceChildren(frag); // replaceChildren вместо innerHTML+append
+                    contentDiv.replaceChildren(frag);
 
                     updatePicSource();
                 };
@@ -342,6 +230,9 @@
                             </li>
                             <li>
                                 <button onclick="filterBy('rating','5')" class="dropdown-item">5 &amp; up</button>
+                            </li>
+                            <li>
+                                <button onclick="filterBy('rating','4')" class="dropdown-item">4 &amp; up</button>
                             </li>
                         </ul>
                     </div>
@@ -743,6 +634,5 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-
 
 </xsl:stylesheet>

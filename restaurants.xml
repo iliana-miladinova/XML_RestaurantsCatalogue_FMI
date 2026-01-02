@@ -18,11 +18,11 @@
     <!ENTITY r2_img3 PUBLIC "r2_img3_id" "./images/vitosha04.jpg" NDATA jpeg>
     <!ENTITY r2_img4 PUBLIC "r2_img4_id" "./images/vitosha05.jpg" NDATA jpeg>
 
-    <!ENTITY r3_img0 PUBLIC "r3_img0_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-2.jpg" NDATA jpeg>
-    <!ENTITY r3_img1 PUBLIC "r3_img1_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-3.jpg" NDATA jpeg>
-    <!ENTITY r3_img2 PUBLIC "r3_img2_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-4.jpg" NDATA jpeg>
-    <!ENTITY r3_img3 PUBLIC "r3_img3_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-5.jpg" NDATA jpeg>
-    <!ENTITY r3_img4 PUBLIC "r3_img4_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-6.jpg" NDATA jpeg>
+    <!ENTITY r3_img0 PUBLIC "r3_img0_id" "./images/Happy01.jpg" NDATA jpeg>
+    <!ENTITY r3_img1 PUBLIC "r3_img1_id" "./images/Happy02.jpg" NDATA jpeg>
+    <!ENTITY r3_img2 PUBLIC "r3_img2_id" "./images/Happy03.jpg" NDATA jpeg>
+    <!ENTITY r3_img3 PUBLIC "r3_img3_id" "./images/Happy04.jpg" NDATA jpeg>
+    <!ENTITY r3_img4 PUBLIC "r3_img4_id" "./images/Happy05.jpg" NDATA jpeg>
 
     <!ENTITY r4_img0 PUBLIC "r4_img0_id" "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/11/1a/bc/6c/interior.jpg" NDATA jpeg>
     <!ENTITY r4_img1 PUBLIC "r4_img1_id" "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c3/8c/7f/nezih.jpg" NDATA jpeg>
@@ -48,9 +48,9 @@
     <!ENTITY r8_img1 PUBLIC "r8_img1_id" "https://www.restaurant.bg/img/entities/4955/KVK_4013.jpg" NDATA jpeg>
     <!ENTITY r8_img2 PUBLIC "r8_img2_id" "https://www.restaurant.bg/img/entities/4955/KVK_4091.jpg" NDATA jpeg>
 
-    <!ENTITY r9_img0 PUBLIC "r9_img0_id" "https://www.restaurant.bg/img/entities/5167/1573111312_1200_1-beso-interior-web-5.jpg" NDATA jpeg>
-    <!ENTITY r9_img1 PUBLIC "r9_img1_id" "https://www.restaurant.bg/img/entities/5167/1573111627_1200_3.jpg" NDATA jpeg>
-    <!ENTITY r9_img2 PUBLIC "r9_img2_id" "https://www.restaurant.bg/img/entities/5167/1573111628_1200_5.jpg" NDATA jpeg>
+    <!ENTITY r9_img0 PUBLIC "r9_img0_id" "./images/Happy06.jpg" NDATA jpeg>
+    <!ENTITY r9_img1 PUBLIC "r9_img1_id" "./images/Happy07.jpg" NDATA jpeg>
+    <!ENTITY r9_img2 PUBLIC "r9_img2_id" "./images/Happy08.jpg" NDATA jpeg>
 
     <!ENTITY r10_img0 PUBLIC "r10_img0_id" "https://www.restaurant.bg/img/entities/4978/1495535353_1200_17038497_1895662577379075_8900319286293745508_o.jpg" NDATA jpeg>
     <!ENTITY r10_img1 PUBLIC "r10_img1_id" "https://www.restaurant.bg/img/entities/4978/1495535354_1200_17038756_1895662644045735_1864526691811403141_o.jpg" NDATA jpeg>
@@ -84,15 +84,15 @@
             <services wifi="true" reservations="true" veganOptions="true"/>
             <menu>
                 <dish>
-                <name>Spaghetti Carbonara</name>
-                <price>14.90</price>
-                <ingredients>Pasta, eggs, pancetta, parmesan</ingredients>
+                    <name>Spaghetti Carbonara</name>
+                    <price>14.90</price>
+                    <ingredients>Pasta, eggs, pancetta, parmesan</ingredients>
                 </dish>
                 <dish>
-                <name>Vegetarian Lasagna</name>
-                <price>13.50</price>
-                <ingredients>Lasagna sheets, vegetables, tomato sauce</ingredients>
-                <diet vegetarian="true"/>
+                    <name>Vegetarian Lasagna</name>
+                    <price>13.50</price>
+                    <ingredients>Lasagna sheets, vegetables, tomato sauce</ingredients>
+                    <diet vegetarian="true"/>
                 </dish>
             </menu>
         </restaurant>
@@ -104,58 +104,71 @@
             </categoryList>
             <picture source="r2_img0"/>
             <address>Vitosha Blvd, Sofia</address>
+            <phone>+359 2 765 4321</phone>
+            <website>http://www.spaghetti-company.com</website>
             <capacity>80</capacity>
+            <workingHours>10:00 - 23:00</workingHours>
             <rating>8.4</rating>
             <priceCategory>$$</priceCategory>
-            <services wifi="true"/>
+            <description>Chic Italian eatery offering handmade pasta, fresh salads and a cozy atmosphere.</description>
             <gallery>
                 <image source="r2_img1"/>
                 <image source="r2_img2"/>
                 <image source="r2_img3"/>
                 <image source="r2_img4"/>
             </gallery>
+            <services wifi="true"/>
             <menu>
                 <dish>
-                <name>Spaghetti Bolognese</name>
-                <price>15.20</price>
+                    <name>Spaghetti Bolognese</name>
+                    <price>15.20</price>
                 </dish>
                 <dish>
-                <name>Margherita Pizza</name>
-                <price>12.00</price>
+                    <name>Margherita Pizza</name>
+                    <price>12.00</price>
                 </dish>
             </menu>
         </restaurant>
 
-        <!-- La Terrazza di Serdica -->
-        <restaurant id="res3" region="r_sofia">
-            <name>La Terrazza di Serdica</name>
+        <restaurant id="res3" region="r_sofia" chain="c_happy">
+            <name>Happy - Paradise Mall</name>
             <categoryList>
                 <category>italian</category>
                 <category>bulgarian</category>
             </categoryList>
             <picture source="r3_img0"/>
-            <address>Hotel Arena di Serdica, Sofia</address>
-            <capacity>60</capacity>
-            <rating>9.2</rating>
-            <priceCategory>$$$</priceCategory>
-            <services reservations="true" liveMusic="true"/>
+            <address>Paradise Mall, Sofia</address>
+            <phone>0886 000 700</phone>
+            <website>https://happy.bg/restaurants/20/happy-mol-paradays-sofiya</website>
+            <capacity>200</capacity>
+            <workingHours>12:00 - 22:30</workingHours>
+            <rating>4.5</rating>
+            <priceCategory>$$</priceCategory>
+            <description>Nice restaurant with delicious food at a good location.</description>
             <gallery>
                 <image source="r3_img1"/>
                 <image source="r3_img2"/>
                 <image source="r3_img3"/>
                 <image source="r3_img4"/>
             </gallery>
+            <services reservations="true" parking="true"/>
             <menu>
                 <dish>
-                <name>Grilled Sea Bass</name>
-                <price>26.00</price>
+                    <name>Baked Yellow Cheese</name>
+                    <price>11.99</price>
+                    <ingredients>Yellow cheese, eggs, yogurt, butter</ingredients>
+                    <alergens dairy="true" eggs="true"/>
+                    <diet vegetarian="true"/>
                 </dish>
                 <dish>
-                <name>Tiramisu</name>
-                <price>9.50</price>
+                    <name>Spaghetti Carbonara</name>
+                    <price>18.89</price>
+                    <ingredients>Pasta, eggs, pancetta, parmesan</ingredients>
+                    <alergens gluten="true" dairy="true" eggs="true"/>
                 </dish>
             </menu>
         </restaurant>
+
 
         <restaurant id="res4" region="r_plovdiv">
             <name>GUSTO Ristorante &amp; Pizza</name>
@@ -178,13 +191,13 @@
             <services wifi="true" outdoorSeating="true" reservations="true"/>
             <menu>
                 <dish>
-                <name>Prosciutto Pizza</name>
-                <price>13.80</price>
-                <ingredients>Tomato sauce, mozzarella, prosciutto</ingredients>
+                    <name>Prosciutto Pizza</name>
+                    <price>13.80</price>
+                    <ingredients>Tomato sauce, mozzarella, prosciutto</ingredients>
                 </dish>
                 <dish>
-                <name>Grilled Chicken Fillet</name>
-                <price>16.50</price>
+                    <name>Grilled Chicken Fillet</name>
+                    <price>16.50</price>
                 </dish>
             </menu>
         </restaurant>
@@ -210,13 +223,13 @@
             <services outdoorSeating="true" parking="true"/>
             <menu>
                 <dish>
-                <name>Grilled Sea Bream</name>
-                <price>22.00</price>
-                <alergens seafood="true"/>
+                    <name>Grilled Sea Bream</name>
+                    <price>22.00</price>
+                    <alergens seafood="true"/>
                 </dish>
                 <dish>
-                <name>Black Sea Mussels</name>
-                <price>14.50</price>
+                    <name>Black Sea Mussels</name>
+                    <price>14.50</price>
                 </dish>
             </menu>
         </restaurant>
@@ -230,6 +243,7 @@
             <picture source="r6_img0"/>
             <address>Port Area, Burgas</address>
             <capacity>100</capacity>
+            <workingHours>10:00 - 00:00</workingHours>
             <rating>9.1</rating>
             <priceCategory>$$$</priceCategory>
             <description>Elegant seaside restaurant specializing in premium seafood and refined culinary techniques.</description>
@@ -243,13 +257,14 @@
             <services reservations="true" liveMusic="true"/>
             <menu>
                 <dish>
-                <name>Lobster Tail</name>
-                <price>45.00</price>
-                <alergens seafood="true"/>
+                    <name>Lobster Tail</name>
+                    <price>45.00</price>
+                    <alergens seafood="true"/>
+                    <diet glutenFree="true"/>
                 </dish>
                 <dish>
-                <name>Octopus Salad</name>
-                <price>21.00</price>
+                    <name>Octopus Salad</name>
+                    <price>21.00</price>
                 </dish>
             </menu>
         </restaurant>
@@ -263,6 +278,7 @@
             <picture source="r7_img0"/>
             <address>Trakia District, Plovdiv</address>
             <capacity>85</capacity>
+            <workingHours>07:00 - 02:00</workingHours>
             <rating>8.3</rating>
             <priceCategory>$$</priceCategory>
             <description>Casual restaurant offering pasta, burgers, desserts and homemade gelato.</description>
@@ -274,12 +290,13 @@
             <services wifi="true" kidsArea="true"/>
             <menu>
                 <dish>
-                <name>Classic Cheeseburger</name>
-                <price>11.90</price>
+                    <name>Classic Cheeseburger</name>
+                    <price>11.90</price>
+                    <alergens gluten="true" dairy="true"/>
                 </dish>
                 <dish>
-                <name>Chocolate Gelato</name>
-                <price>5.50</price>
+                    <name>Chocolate Gelato</name>
+                    <price>5.50</price>
                 </dish>
             </menu>
         </restaurant>
@@ -293,6 +310,7 @@
             <picture source="r8_img0"/>
             <address>Central Square, Blagoevgrad</address>
             <capacity>70</capacity>
+            <workingHours>07:00 - 01:00</workingHours>
             <rating>8.1</rating>
             <priceCategory>$$</priceCategory>
             <description>Popular city restaurant serving Italian-inspired dishes and desserts.</description>
@@ -303,46 +321,52 @@
             <services wifi="true"/>
             <menu>
                 <dish>
-                <name>Penne Alfredo</name>
-                <price>13.20</price>
+                    <name>Penne Alfredo</name>
+                    <price>13.20</price>
                 </dish>
                 <dish>
-                <name>Vanilla Gelato</name>
-                <price>5.20</price>
+                    <name>Vanilla Gelato</name>
+                    <price>5.20</price>
                 </dish>
             </menu>
         </restaurant>
 
-        <restaurant id="res9" region="r_sofia">
-            <name>Bar &amp; Dinner BESO</name>
+        <restaurant id="res9" region="r_burgas" chain="c_happy">
+            <name>Happy Center - Burgas</name>
             <categoryList>
-                <category>grill</category>
-                <category>asian</category>
+                <category>bulgarian</category>
+                <category>italian</category>
             </categoryList>
             <picture source="r9_img0"/>
-            <address>City Center, Sofia</address>
+            <address>City Center, Burgas</address>
+            <phone>0886 000 700</phone>
+            <website>https://happy.bg/restaurants</website>
             <capacity>95</capacity>
-            <rating>9.0</rating>
-            <priceCategory>$$$</priceCategory>
-            <description>Stylish restaurant combining modern cuisine, cocktails and nightlife atmosphere.</description>
+            <workingHours>10:00 - 23:00</workingHours>
+            <rating>4.6</rating>
+            <priceCategory>$$</priceCategory>
+            <description>Popular restaurant in the city center.</description>
             <gallery>
                 <image source="r9_img1"/>
                 <image source="r9_img2"/>
             </gallery>
-            <services liveMusic="true" reservations="true"/>
+            <services reservations="true" veganOptions="true" wifi="true"/>
             <menu>
                 <dish>
-                <name>Beef Tataki</name>
-                <price>24.00</price>
+                    <name>Grilled Chicken</name>
+                    <price>17.99</price>
+                    <diet glutenFree="true"/>
                 </dish>
                 <dish>
-                <name>Salmon Teriyaki</name>
-                <price>26.00</price>
+                    <name>King Honey Pickle</name>
+                    <price>7.99</price>
+                    <alergens nuts="true"/>
+                    <diet vegetarian="true" vegan="true"/>
                 </dish>
             </menu>
         </restaurant>
 
-            <restaurant id="res10" region="r_sofia">
+        <restaurant id="res10" region="r_sofia">
             <name>Social Cafe</name>
             <categoryList>
                 <category>fastFood</category>
@@ -351,6 +375,7 @@
             <picture source="r10_img0"/>
             <address>Graf Ignatiev Street, Sofia</address>
             <capacity>60</capacity>
+            <workingHours>10:00 - 23:00</workingHours>
             <rating>8.5</rating>
             <priceCategory>$</priceCategory>
             <description>Cozy urban cafe popular for brunch, specialty coffee and vegetarian meals.</description>
@@ -361,13 +386,13 @@
             <services wifi="true" veganOptions="true"/>
             <menu>
                 <dish>
-                <name>Avocado Toast</name>
-                <price>9.80</price>
+                    <name>Avocado Toast</name>
+                    <price>9.80</price>
                 <diet vegan="true"/>
                 </dish>
                 <dish>
-                <name>Pancakes with Maple Syrup</name>
-                <price>8.50</price>
+                    <name>Pancakes with Maple Syrup</name>
+                    <price>8.50</price>
                 </dish>
             </menu>
         </restaurant>
@@ -401,6 +426,7 @@
     <chains>
         <chain id="c_spaghetti">Spaghetti Company</chain>
         <chain id="c_raffy">Raffy Bar &amp; Gelato</chain>
+        <chain id="c_happy">Happy</chain>
     </chains>
 
 </restaurantCatalogue>
