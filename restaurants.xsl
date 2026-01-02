@@ -431,12 +431,6 @@
                             <li>
                                 <button onclick="orderBy('priceCategory','descending','text')" class="dropdown-item">Price Category ↓</button>
                             </li>
-                            <li>
-                                <button onclick="orderBy('chain','ascending','text')" class="dropdown-item">Chain ↑</button>
-                            </li>
-                            <li>
-                                <button onclick="orderBy('chain','descending','text')" class="dropdown-item">Chain ↓</button>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -466,12 +460,6 @@
                 <xsl:when test="$sortOn='priceCategory'">
                     <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
                         <xsl:sort select="priceCategory" order="{$sortOrder}" data-type="text"/>
-                        <xsl:call-template name="restaurantTempl" />
-                    </xsl:for-each>
-                </xsl:when>
-                <xsl:when test="$sortOn='chain'">
-                    <xsl:for-each select="restaurantCatalogue/restaurants/restaurant">
-                        <xsl:sort select="/restaurantCatalogue/chains/chain[@id=current()/@chain]" order="{$sortOrder}" data-type="text"/>
                         <xsl:call-template name="restaurantTempl" />
                     </xsl:for-each>
                 </xsl:when>
@@ -523,12 +511,12 @@
                         <xsl:if test="$chainId != ''">
                             <p class="card-text">
                                 <i class="fa fa-building chain-icon"></i>
-                                <strong>Chain:</strong> <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
+                                <strong>Chain: </strong> <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
                             </p>
                         </xsl:if>
                         <p class="card-text">
                             <i class="fa fa-dollar"></i>
-                            <strong> Price Category:</strong> <xsl:value-of select="priceCategory"/>
+                            <strong> Price Category: </strong> <xsl:value-of select="priceCategory"/>
                         </p>
                         <div class="mt-auto">
                             <span class="restaurant-rating">
@@ -589,24 +577,24 @@
 
                 <div class="col-5 ms-4">
                     <p>
-                        <strong>Located in:</strong>
+                        <strong>Located in: </strong>
                         <xsl:call-template name="regionTempl">
                             <xsl:with-param name="regId" select="$regId"/>
                         </xsl:call-template>
                     </p>
                     <p>
-                        <strong>Address:</strong> 
+                        <strong>Address: </strong> 
                         <xsl:value-of select="$restaurant/address"/>
                     </p>
                     <xsl:if test="$restaurant/phone != ''">
                         <p>
-                            <strong>Phone:</strong> 
+                            <strong>Phone: </strong> 
                             <xsl:value-of select="$restaurant/phone"/>
                         </p>
                     </xsl:if>
                     <xsl:if test="$restaurant/website != ''">
                         <p>
-                            <strong>Website:</strong> 
+                            <strong>Website: </strong> 
                             <a href="{$restaurant/website}" target="_blank">
                                 <xsl:value-of select="$restaurant/website"/>
                             </a>
@@ -614,26 +602,26 @@
                     </xsl:if>
                     <xsl:if test="$restaurant/@chain != ''">
                         <p>
-                            <strong>Part of:</strong> 
+                            <strong>Part of: </strong> 
                             <xsl:value-of select="/restaurantCatalogue/chains/chain[@id=$chainId]"/>
                         </p>
                     </xsl:if>
                     <p>
-                        <strong>Capacity:</strong> 
+                        <strong>Capacity: </strong> 
                         <xsl:value-of select="$restaurant/capacity"/>
                     </p>
                     <xsl:if test="$restaurant/workingHours != ''">
                         <p>
-                            <strong>Working hours:</strong> 
+                            <strong>Working hours: </strong> 
                             <xsl:value-of select="$restaurant/workingHours"/>
                         </p>
                     </xsl:if>
                     <p>
-                        <strong>Rating:</strong> 
+                        <strong>Rating: </strong> 
                         <xsl:value-of select="$restaurant/rating"/> / 10
                     </p>
                     <p>
-                        <strong>Price:</strong> 
+                        <strong>Price: </strong> 
                         <xsl:value-of select="$restaurant/priceCategory"/>
                     </p>
                     <p>

@@ -6,17 +6,17 @@
 		xsi:noNamespaceSchemaLocation CDATA #FIXED "schema.xsd">
 
 	<!NOTATION jpeg SYSTEM "image/jpeg">
-    <!ENTITY r1_img0 PUBLIC "r1_img0_id" "http://www.spaghetti-company.com/img/locations/bulgaria/01.jpg" NDATA jpeg>
-    <!ENTITY r1_img1 PUBLIC "r1_img1_id" "http://www.spaghetti-company.com/img/locations/bulgaria/02.jpg" NDATA jpeg>
-    <!ENTITY r1_img2 PUBLIC "r1_img2_id" "http://www.spaghetti-company.com/img/locations/bulgaria/03.jpg" NDATA jpeg>
-    <!ENTITY r1_img3 PUBLIC "r1_img3_id" "http://www.spaghetti-company.com/img/locations/bulgaria/04.jpg" NDATA jpeg>
-    <!ENTITY r1_img4 PUBLIC "r1_img4_id" "http://www.spaghetti-company.com/img/locations/bulgaria/05.jpg" NDATA jpeg>
+    <!ENTITY r1_img0 PUBLIC "r1_img0_id" "./images/bulgaria01.jpg" NDATA jpeg>
+    <!ENTITY r1_img1 PUBLIC "r1_img1_id" "./images/bulgaria02.jpg" NDATA jpeg>
+    <!ENTITY r1_img2 PUBLIC "r1_img2_id" "./images/bulgaria03.jpg" NDATA jpeg>
+    <!ENTITY r1_img3 PUBLIC "r1_img3_id" "./images/bulgaria04.jpg" NDATA jpeg>
+    <!ENTITY r1_img4 PUBLIC "r1_img4_id" "./images/bulgaria05.jpg" NDATA jpeg>
 
-    <!ENTITY r2_img0 PUBLIC "r2_img0_id" "http://www.spaghetti-company.com/img/locations/vitosha/01.jpg" NDATA jpeg>
-    <!ENTITY r2_img1 PUBLIC "r2_img1_id" "http://www.spaghetti-company.com/img/locations/vitosha/02.jpg" NDATA jpeg>
-    <!ENTITY r2_img2 PUBLIC "r2_img2_id" "http://www.spaghetti-company.com/img/locations/vitosha/03.jpg" NDATA jpeg>
-    <!ENTITY r2_img3 PUBLIC "r2_img3_id" "http://www.spaghetti-company.com/img/locations/vitosha/04.jpg" NDATA jpeg>
-    <!ENTITY r2_img4 PUBLIC "r2_img4_id" "http://www.spaghetti-company.com/img/locations/vitosha/07.jpg" NDATA jpeg>
+    <!ENTITY r2_img0 PUBLIC "r2_img0_id" "./images/vitosha01.jpg" NDATA jpeg>
+    <!ENTITY r2_img1 PUBLIC "r2_img1_id" "./images/vitosha02.jpg" NDATA jpeg>
+    <!ENTITY r2_img2 PUBLIC "r2_img2_id" "./images/vitosha03.jpg" NDATA jpeg>
+    <!ENTITY r2_img3 PUBLIC "r2_img3_id" "./images/vitosha04.jpg" NDATA jpeg>
+    <!ENTITY r2_img4 PUBLIC "r2_img4_id" "./images/vitosha05.jpg" NDATA jpeg>
 
     <!ENTITY r3_img0 PUBLIC "r3_img0_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-2.jpg" NDATA jpeg>
     <!ENTITY r3_img1 PUBLIC "r3_img1_id" "https://balkantouris.com/images/la-terrazza-di-serdica-sofiia-3.jpg" NDATA jpeg>
